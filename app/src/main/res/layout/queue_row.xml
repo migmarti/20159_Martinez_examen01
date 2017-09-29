@@ -10,8 +10,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Number"
         android:id="@+id/textNumber"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,12 +30,4 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textCustomer" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="X"
-        android:id="@+id/btnDelete"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/textOperations" />
 </RelativeLayout>

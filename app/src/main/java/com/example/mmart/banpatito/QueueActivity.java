@@ -7,7 +7,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class QueueActivity extends AppCompatActivity {
-    CustomerAdapter customerAdapter;
+    QueueAdapter customerAdapter;
     ListView listView;
     ArrayList<Customer> customers;
     @Override
@@ -15,7 +15,7 @@ public class QueueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue);
         listView = (ListView) findViewById(R.id.listView);
-        customerAdapter = new CustomerAdapter(this);
+        customerAdapter = new QueueAdapter(this);
         listView.setAdapter(customerAdapter);
 
         customers = this.getIntent().getParcelableArrayListExtra("Parcel");

@@ -11,10 +11,16 @@ public class Customer implements Parcelable {
     private String name;
     private int operations;
     private boolean flag = true;
+    private int position;
+    private String id;
 
     public Customer(String name, int operations) {
         this.name = name;
         this.operations = operations;
+    }
+
+    public Customer() {
+
     }
 
     public Customer(Parcel in) {
@@ -22,8 +28,20 @@ public class Customer implements Parcelable {
         this.operations = in.readInt();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getOperations() {
@@ -38,6 +56,14 @@ public class Customer implements Parcelable {
 
     public void setFlag(boolean flag) {
         this.flag = flag;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     @Override
