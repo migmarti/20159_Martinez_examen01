@@ -10,9 +10,10 @@ import android.widget.ListView;
 
 import com.example.mmart.banpatito.Utils.CustomerHelper;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
-    int turnNumber = 1;
     CustomerAdapter customerAdapter;
     CustomerHelper customerDB;
     @Override
@@ -21,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final EditText txtName = (EditText) findViewById(R.id.editName);
         final EditText txtOperations = (EditText) findViewById(R.id.editOperations);
+        final EditText txtDate = (EditText) findViewById(R.id.editDate);
         Button btnAdd = (Button) findViewById(R.id.buttonAdd);
         Button btnQueue = (Button) findViewById(R.id.buttonQueue);
         Button btnClear = (Button) findViewById(R.id.buttonClear);
         ListView listView = (ListView) findViewById(R.id.listViewCustomer);
-        customerAdapter = new CustomerAdapter(this);
+        customerAdapter = new CustomerAdapter(this, txtDate);
         listView.setAdapter(customerAdapter);
         customerDB = customerAdapter.getDatabase();
 
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
                     customerDB.open();
                     Customer customer = customerDB.addCustomer(name, operations, 0);
                     customerDB.close();
+                    String date = txtDate.getText().toString();
+                    ArrayList<String> newDates = new ArrayList<String>();
+                    newDates.add(date);
+                    customer.setVisits(newDates);
                     customerAdapter.add(customer);
                     customerAdapter.notifyDataSetChanged();
                 }

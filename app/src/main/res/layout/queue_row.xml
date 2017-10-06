@@ -27,7 +27,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="#Operations"
         android:id="@+id/textOperations"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textCustomer" />
+        android:layout_below="@+id/textNumber"
+        android:layout_alignParentStart="true"
+        android:textSize="16dp"
+        android:textColor="@color/abc_secondary_text_material_light" />
 
 </RelativeLayout>

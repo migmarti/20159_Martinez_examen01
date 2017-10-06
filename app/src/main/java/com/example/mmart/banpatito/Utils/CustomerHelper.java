@@ -23,6 +23,17 @@ public class CustomerHelper {
                     DBUtils.CUSTOMER_OPERATIONS,
                     DBUtils.CUSTOMER_POSITION
             };
+    private String[] VISIT_TABLE_COLUMNS =
+            {
+                    DBUtils.VISIT_ID,
+                    DBUtils.VISIT_DATE
+            };
+    private String[] CUSTOMERVISIT_COLUMNS =
+            {
+                    DBUtils.CV_ID,
+                    DBUtils.CVCUSTOMER_ID,
+                    DBUtils.CVVISIT_ID
+            };
 
     public CustomerHelper(Context context) {
         dbHelper = new DBUtils(context);
@@ -41,7 +52,7 @@ public class CustomerHelper {
         values.put(DBUtils.CUSTOMER_POSITION, position);
         long customerId = database.insert(DBUtils.CUSTOMER_TABLE, null, values);
         Cursor cursor = database.query(DBUtils.CUSTOMER_TABLE, CUSTOMER_TABLE_COLUMNS,
-                DBUtils.CUSTOMER_ID+" = "+customerId, null, null, null, null);
+                DBUtils.CUSTOMER_ID + " = " + customerId, null, null, null, null);
         cursor.moveToFirst();
         Customer customer = parseCustomer(cursor);
         cursor.close();
@@ -70,10 +81,12 @@ public class CustomerHelper {
 
     private Customer parseCustomer(Cursor cursor) {
         Customer customer = new Customer();
-        customer.setId(cursor.getString(cursor.getColumnIndex(DBUtils.CUSTOMER_ID)));
-        customer.setName(cursor.getString(cursor.getColumnIndex(DBUtils.CUSTOMER_NAME)));
-        customer.setOperations(cursor.getInt(cursor.getColumnIndex(DBUtils.CUSTOMER_OPERATIONS)));
-        customer.setPosition(cursor.getInt(cursor.getColumnIndex(DBUtils.CUSTOMER_POSITION)));
+        if( cursor != null && cursor.moveToFirst() ) {
+            customer.setId(cursor.getString(cursor.getColumnIndex(DBUtils.CUSTOMER_ID)));
+            customer.setName(cursor.getString(cursor.getColumnIndex(DBUtils.CUSTOMER_NAME)));
+            customer.setOperations(cursor.getInt(cursor.getColumnIndex(DBUtils.CUSTOMER_OPERATIONS)));
+            customer.setPosition(cursor.getInt(cursor.getColumnIndex(DBUtils.CUSTOMER_POSITION)));
+        }
         return customer;
     }
 }

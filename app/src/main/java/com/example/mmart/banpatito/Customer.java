@@ -3,6 +3,8 @@ package com.example.mmart.banpatito;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 /**
  * Created by MMART on 9/8/2017.
  */
@@ -13,10 +15,12 @@ public class Customer implements Parcelable {
     private boolean flag = true;
     private int position;
     private String id;
+    private ArrayList<String> visits;
 
     public Customer(String name, int operations) {
         this.name = name;
         this.operations = operations;
+        this.visits = new ArrayList<String>();
     }
 
     public Customer() {
@@ -64,6 +68,32 @@ public class Customer implements Parcelable {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public ArrayList<String> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(ArrayList<String> visits) {
+        this.visits = visits;
+    }
+
+    public void addVisit(String visit) {
+        this.visits.add(visit);
+    }
+
+    public String printVisits() {
+        String print = "";
+        if (this.visits != null) {
+            for (String visit : this.visits) {
+                if (print.length() > 0) {
+                    print += ", " + visit;
+                } else {
+                    print += visit;
+                }
+            }
+        }
+        return print;
     }
 
     @Override

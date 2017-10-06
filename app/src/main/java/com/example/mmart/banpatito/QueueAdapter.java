@@ -23,10 +23,10 @@ public class QueueAdapter extends ArrayAdapter<Customer> {
         TextView txtOperations = (TextView) objectView.findViewById(R.id.textOperations);
 
         final Customer customer = this.getItem(position);
-        txtNumber.setText((position + 1) + " | ");
-        txtCustomer.setText(customer.getName() + " - ");
-        txtOperations.setText(customer.getOperations() + "");
-        ;
+        txtNumber.setText((position + 1) + " - ");
+        txtCustomer.setText(customer.getName());
+        txtOperations.setText("Remaining Operations: " + customer.getOperations() + " ");
+
         return objectView;
     }
 }

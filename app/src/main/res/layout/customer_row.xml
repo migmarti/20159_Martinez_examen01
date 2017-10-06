@@ -28,15 +28,51 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="#Operations"
         android:id="@+id/textOperations"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textCustomer" />
+        android:layout_below="@+id/textNumber"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/abc_secondary_text_material_light"
+        android:layout_toStartOf="@+id/btnDelete"
+        android:textSize="16dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="X"
+        android:text="DELETE"
         android:id="@+id/btnDelete"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/textOperations" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/btnVisit"
+        android:layout_above="@+id/textID" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ClientNumber"
+        android:id="@+id/textID"
+        android:textColor="@color/abc_secondary_text_material_light"
+        android:textSize="16dp"
+        android:layout_below="@+id/textOperations"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Visits"
+        android:id="@+id/textVisits"
+        android:textColor="@color/abc_secondary_text_material_light"
+        android:textSize="16dp"
+        android:layout_below="@+id/textID"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btnVisit" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD DATE"
+        android:id="@+id/btnVisit"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btnDelete" />
+
 </RelativeLayout>
