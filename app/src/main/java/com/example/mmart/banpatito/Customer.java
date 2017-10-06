@@ -15,12 +15,11 @@ public class Customer implements Parcelable {
     private boolean flag = true;
     private int position;
     private String id;
-    private ArrayList<String> visits;
+    private ArrayList<String> visits = new ArrayList<String>();;
 
     public Customer(String name, int operations) {
         this.name = name;
         this.operations = operations;
-        this.visits = new ArrayList<String>();
     }
 
     public Customer() {
